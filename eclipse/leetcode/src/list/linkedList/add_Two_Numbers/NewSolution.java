@@ -6,8 +6,8 @@ public class NewSolution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
     	
     	ListNode res = new ListNode(0);
-    	ListNode p = res;				//操作的指针
-    	int shift = 0;					//进位
+    	ListNode p = res;				
+    	int shift = 0;					//杩涗綅
     	while(l1!=null||l2!=null) {
     		int val1 = l1==null?0:l1.val;
     		int val2 = l2==null?0:l2.val;
