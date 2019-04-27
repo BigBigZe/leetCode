@@ -26,7 +26,7 @@ public class MyLinkedList {
 		Iterator<Integer> iterator = l.iterator();
 		iterator.next();
 		iterator.remove();
-		iterator.remove();
+		iterator.remove();//不合法
 		for (Integer integer : l) {
 			System.out.println(integer);
 		}
