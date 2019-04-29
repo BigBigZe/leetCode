@@ -1,4 +1,4 @@
-package list.linkedList.LinkedListCycle;
+package list.linkedList.linked_list_cycle;
 
 import list.linkedList.ListNode;
 

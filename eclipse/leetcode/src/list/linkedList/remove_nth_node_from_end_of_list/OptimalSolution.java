@@ -1,4 +1,4 @@
-package list.linkedList.RemoveNthNodeFromEndofList;
+package list.linkedList.remove_nth_node_from_end_of_list;
 
 import list.linkedList.ListNode;
 
