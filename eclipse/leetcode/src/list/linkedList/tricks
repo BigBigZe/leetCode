@@ -1,0 +1,6 @@
+1.在解决链表问题的时候，如果数据量不大，可以考虑引入map，用key记录下每个Node的位置，
+这样就可以快速定位到需要访问的那个节点。
+
+2.不用其他数据结构记录Node位置的原因：比如Vector、LinkedList或ArrayList，
+这是因为a.类似Vector、ArrayList这种数组型数据结构本身插入是很慢的，而LinkedList
+并不支持快速随机访问，因此最合适的还是map。

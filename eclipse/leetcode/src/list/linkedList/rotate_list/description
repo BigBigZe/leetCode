@@ -1,0 +1,37 @@
+Given a linked list, rotate the list to the right by k places, where k is non-negative.
+
+Example 1:
+
+Input: 1->2->3->4->5->NULL, k = 2
+Output: 4->5->1->2->3->NULL
+Explanation:
+rotate 1 steps to the right: 5->1->2->3->4->NULL
+rotate 2 steps to the right: 4->5->1->2->3->NULL
+Example 2:
+
+Input: 0->1->2->NULL, k = 4
+Output: 2->0->1->NULL
+Explanation:
+rotate 1 steps to the right: 2->0->1->NULL
+rotate 2 steps to the right: 1->2->0->NULL
+rotate 3 steps to the right: 0->1->2->NULL
+rotate 4 steps to the right: 2->0->1->NULL
+
+Solution:
+	基本思路：
+	1.k和旋转节点的关系。
+	比如链表长度为n=3，那么当k=1时，相当于把倒数第一个节点移到最左边；
+	k=2时，相当于把倒数两个节点移到最左边；
+	同理k=3时，相当于把最后三个移到最左边（实际上没变）。
+	
+	2.k>n
+	如果当k>n，则进行取模处理，k%n == 0...n-1分别对应最后0个（不变）、1个、n-1个节点
+	
+	3.找到第n-k%n（即倒数第k%n+1）个节点，把该节点的next设为null；
+	找到原链表的最后一个节点，连接到head，最后返回倒数第k%n个节点。
+	
+	old版：第一次遍历链表，用counter算出n；第二次遍历链表，找出第n-(k%n)然后进行第三步操作。
+	用时：17ms，内存：27.2MB
+	new版：只遍历一次链表，把所有节点按index放入map，然后直接用get找到n-(k%n)进行第三步。
+	用时：5ms，内存35.8MB（还是典型的空间换时间，但是速度快了三倍，减少了一次遍历）
+	
