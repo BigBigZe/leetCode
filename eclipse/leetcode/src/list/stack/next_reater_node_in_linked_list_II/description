@@ -1,0 +1,57 @@
+We are given a linked list with head as the first node.
+Let's number the nodes in the list: node_1, node_2, node_3, ... etc.
+
+Each node may have a next larger value: for node_i, 
+next_larger(node_i) is the node_j.val such that j > i, 
+node_j.val > node_i.val, and j is the smallest possible 
+choice.  If such a j does not exist, the next larger value is 0.
+
+Return an array of integers answer, 
+where answer[i] = next_larger(node_{i+1}).
+
+Note that in the example inputs (not outputs) below, 
+arrays such as [2,1,5] represent the serialization of a 
+linked list with a head node value of 2, 
+second node value of 1, and third node value of 5.
+
+ 
+
+Example 1:
+
+Input: [2,1,5]
+Output: [5,5,0]
+Example 2:
+
+Input: [2,7,4,3,5]
+Output: [7,0,5,5,0]
+Example 3:
+
+Input: [1,7,5,1,9,2,5,1]
+Output: [7,9,9,9,0,5,0,0]
+ 
+
+Note:
+
+1 <= node.val <= 10^9 for each node in the linked list.
+The given list has length in the range [0, 10000].
+
+Solution:
+	这里就不讨论暴力求解了，因为一开始是从 栈 类型的题目选的这道题，所以刚开始
+	我确实就考虑到了用栈来进行操作，但是没敢深入往下想，因为看到提示说是要用一个
+	单调栈的东西，所以就去网上查了查，刚开始确实没捋清楚，因为网上大部分是直接
+	上代码，但是没有给具体例子，后面想了好久才捋清楚逻辑，其实思路很简单：
+		1.把所有节点存在数组中，为了方便之后的访问操作。这里选择ArrayList或
+		直接申一块很大容量的数组进行操作，因为之后访问次数有点多，用LinkedList
+		试了两次都直接超时了。
+		2.单调递减栈：栈内元素始终满足栈底到栈顶依次减小，而当栈外元素比栈顶小
+		时才能允许压栈操作，否则一直出栈，直到满足比栈顶小为止。
+		3.采用单调递减栈，遍历已经存好的数组，按照单调递减栈的规则对数组的
+		下标进行操作，当遍历到第i个数时，比较array[i]和array[stack.peek()]
+		的大小，如果前者更大，则一直进行出栈操作，并且所有出栈下标对应的结果都为
+		array[i]，最后把i进行压栈操作。
+		
+		解释一下：这里用单调栈的可行性：因为是按顺序遍历，所以只要在栈内，那么都
+		满足单调连续性，即栈内元素都没有找到比其大的数，而每次遍历的数都只跟栈顶
+		比较，这是因为从栈顶到栈底是逐渐离当前遍历数越来越远的———比如当前遍历
+		到第i个数，那么栈内元素j1(栈顶)、j2...jn(栈底)肯定满足i>j1>j2..>jn，
+		所以每次找到的比栈内元素大的数一定是第一个比他大的。
