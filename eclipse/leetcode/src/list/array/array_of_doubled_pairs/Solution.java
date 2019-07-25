@@ -1,16 +1,14 @@
 package list.array.array_of_doubled_pairs;
 
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Vector;
 
 public class Solution {
 	public boolean canReorderDoubled(int[] A) {
-		Vector<Integer> posList = new Vector<>();
-		Vector<Integer> negList = new Vector<>();
+		List<Integer> negList = new LinkedList<>();
+		List<Integer> posList = new LinkedList<>();
 		for(int i:A)
 			if(i>=0)posList.add(i);
 			else negList.add(i);

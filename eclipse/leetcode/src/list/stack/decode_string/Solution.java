@@ -11,7 +11,7 @@ public class Solution {
     	String num ="";
     	for (char c : charArray) {
 			if(c>='0'&&c<='9') {
-				num += c;
+				num += c;//如果位数大于1需要进行parse
 			}else if(c=='[') {
 				nums.push(Integer.parseInt(num));
 				num = "";

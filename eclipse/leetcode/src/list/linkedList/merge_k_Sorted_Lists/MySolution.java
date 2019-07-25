@@ -13,8 +13,8 @@ import list.linkedList.ListNode;
 public class MySolution {
     public ListNode mergeKLists(ListNode[] lists) {
     	if(lists.length==0)return null;
-    	Map<Integer, ListNode> headmap = new HashMap<>();
-    	Map<Integer, ListNode> tailmap = new HashMap<>();
+    	Map<Integer, ListNode> headmap = new HashMap<>();//记录头部节点
+    	Map<Integer, ListNode> tailmap = new HashMap<>();//记录尾部节点
     	for (ListNode head : lists) {
 			while(head!=null) {
 				if(headmap.containsKey(head.val)) {

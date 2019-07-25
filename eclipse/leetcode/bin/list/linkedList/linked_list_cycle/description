@@ -1,0 +1,39 @@
+Given a linked list, determine if it has a cycle in it.
+
+To represent a cycle in the given linked list, 
+we use an integer pos which represents the position (0-indexed) in the 
+linked list where tail connects to. If pos is -1, then there is no cycle 
+in the linked list.
+
+ 
+
+Example 1:
+
+Input: head = [3,2,0,-4], pos = 1
+Output: true
+Explanation: There is a cycle in the linked list, 
+where tail connects to the second node.
+3->2->0->-4->3
+
+Example 2:
+
+Input: head = [1,2], pos = 0
+Output: true
+Explanation: There is a cycle in the linked list, 
+where tail connects to the first node.
+1->2->1
+
+Example 3:
+
+Input: head = [1], pos = -1
+Output: false
+Explanation: There is no cycle in the linked list.
+1
+
+Solution:
+	我的思路：还是用空间换时间，循环遍历所有节点，每个都放入集合，遇到重复的则说明有环；否则无环
+	
+	快慢指针法：s和f同时遍历，f每次跳两个节点，s每次跳一个，若f遍历到null说明无环；若与s再次相遇，
+	则说明有环。
+
+ 
