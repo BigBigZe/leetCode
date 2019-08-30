@@ -4,15 +4,15 @@ public class InsertSort implements Sort {
 
 	@Override
 	public void sort(int[] nums) {
-		// TODO Auto-generated method stub
-		for(int times=1;times<nums.length;times++) {
-			int temp = nums[times];
-			int i=times;
-			while(i>0&&nums[i-1]<temp) {
-				nums[i]=nums[i-1];
-				i--;
+		for(int i=1;i<nums.length;i++)
+		{
+			int j=i;
+			int tmp = nums[i];
+			while(j>0&&nums[j-1]>tmp) {
+				nums[j] = nums[j-1];
+				j--;
 			}
-			nums[i] = temp;
+			nums[j] = tmp;
 		}
 	}
 

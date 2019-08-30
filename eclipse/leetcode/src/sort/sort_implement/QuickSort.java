@@ -1,6 +1,6 @@
 package sort.sort_implement;
 
-import java.util.Arrays;
+
 
 public class QuickSort implements Sort{
 
@@ -8,7 +8,7 @@ public class QuickSort implements Sort{
 	public void sort(int[] nums) {
 		// TODO Auto-generated method stub
 //		quickSort(0, nums.length-1, nums);
-		quickSort(nums, 0, nums.length-1);
+		test(nums, 0, nums.length-1);
 //		Arrays.sort(nums);
 	}
 	
@@ -48,6 +48,31 @@ public class QuickSort implements Sort{
 		nums[j] = pivot;
 		quickSort(nums, left, j-1);
 		quickSort(nums, j+1, right);
+	}
+	
+	public void test(int[] nums,int left,int right) {
+		
+		if(left>=right) return ;
+		
+		int i = left,j = right;
+		int pivot = nums[i];
+		
+		while(i<j) {
+			while(i<j&&nums[j]>=pivot)j--;
+			if(i<j)nums[i++] = nums[j];
+			while(i<j&&nums[i]<pivot)i++;
+			if(i<j)nums[j--] = nums[i];
+		}
+		nums[i] = pivot;
+		quickSort(left, i-1, nums);
+		quickSort(i+1, right, nums);
+		
+		
+		
+		
+		
+		
+		
 	}
 
 }
