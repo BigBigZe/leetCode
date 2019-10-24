@@ -2,7 +2,6 @@ Given an array A of positive lengths, return the largest perimeter of a triangle
 
 If it is impossible to form any triangle of non-zero area, return 0.
 
- 
 ```
 Example 1:
 
