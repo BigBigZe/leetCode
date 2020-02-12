@@ -9,15 +9,17 @@ public class Solution {
     		return sum;
     	}
     	
-    	int[][] record = new int [A.length][A[0].length];
+    	int[][] record = new int [A.length][A[0].length];//记录当前[i][j]的最短路径和
     	int min = Integer.MAX_VALUE;
+    	
+    	//第一行初始化处理
     	for(int i=0;i<A[0].length;i++) {
     		record[0][i] = A[0][i];
     	}
     	
     	
     	for(int i=1;i<record.length;i++) {
-    		
+    		//第一列和最后一列单独做特殊处理
     		record[i][0] = Math.min(record[i-1][0], record[i-1][1])+A[i][0];
     		for(int j=1;j<record[i].length-1;j++) {
     			record[i][j] = 

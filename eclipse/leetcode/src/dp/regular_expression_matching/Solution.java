@@ -23,6 +23,10 @@ public class Solution {
 		return dp[m][n];
     }
     public static void main(String[] args) {
-		new Solution().isMatch("aa", "a*b*");
+		String a1 = "aa",a2="bb";
+		String a3 = new StringBuilder("aa").append("bb").toString();
+		String a4 = a1+a2;
+		System.out.println(a4.intern()==a3);
+		
 	}
 }
