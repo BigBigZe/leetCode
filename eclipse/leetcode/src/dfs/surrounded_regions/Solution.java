@@ -1,4 +1,4 @@
-package bfAnddf.surrounded_regions;
+package dfs.surrounded_regions;
 
 public class Solution {
     public void solve(char[][] board) {

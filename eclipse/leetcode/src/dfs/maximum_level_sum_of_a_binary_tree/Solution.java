@@ -1,4 +1,4 @@
-package bfAnddf.maximum_level_sum_of_a_binary_tree;
+package dfs.maximum_level_sum_of_a_binary_tree;
 
 import java.util.LinkedList;
 import java.util.Queue;

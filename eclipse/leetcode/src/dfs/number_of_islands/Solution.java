@@ -1,4 +1,4 @@
-package bfAnddf.number_of_islands;
+package dfs.number_of_islands;
 
 
 public class Solution {

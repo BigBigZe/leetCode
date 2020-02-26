@@ -1,4 +1,6 @@
-package bfAnddf.broken_calculator;
+package dfs.broken_calculator;
+
+
 
 public class Optimization {
     public int brokenCalc(int X, int Y) {
@@ -14,6 +16,8 @@ public class Optimization {
     	}
 		return counter+X-Y;
     }
+    
+    
     public static void main(String[] args) {
 		System.out.println(new Optimization().brokenCalc(1, 1000000000));
 	}
